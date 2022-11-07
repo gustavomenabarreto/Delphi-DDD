@@ -1,3 +1,3 @@
 # Delphi-DDD
 
-Delphi DDD Project Exemple
+Delphi DDD Project Example
