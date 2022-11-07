@@ -1,0 +1,35 @@
+unit ConexaoDB;
+
+interface
+uses
+  DB, ADODB;
+type
+  TConexaoDB = class
+  private
+    FConexao: TADOConnection;
+  public
+    constructor Create (const ConnectionString: string);
+    destructor Destroy; override;
+    property Conexao: TADOConnection read FConexao;
+  end;
+
+var
+  DBConexao: TConexaoDB;
+
+implementation
+
+constructor TConexaoDB.Create(const ConnectionString: string);
+begin
+  FConexao := TADOConnection.Create(nil);
+  FConexao.ConnectionString := ConnectionString;
+  FConexao.LoginPrompt := false;
+  FConexao.Connected := true;
+end;
+
+destructor TConexaoDB.Destroy;
+begin
+  FConexao.Free;
+  inherited;
+end;
+
+end.

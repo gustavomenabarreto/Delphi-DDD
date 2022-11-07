@@ -1,0 +1,71 @@
+unit ProdutoRepository;
+
+interface
+
+uses SysUtils, DB, ADODB, ConexaoDB, Produto, ProdutoValueObjects;
+
+type
+  TProdutoRepository = class
+  private
+   FConnection: TADOConnection;
+  public
+    constructor Create (Connection: TADOConnection);
+    destructor Destroy; override;
+    procedure Add (Produto: TProduto);
+    procedure Remove (Produto: TProduto);
+    procedure Update (Produto: TProduto);
+    function Get (Id: TProdutoId): TProduto;
+  end;
+
+implementation
+
+constructor TProdutoRepository.Create (Connection: TADOConnection);
+begin
+  FConnection := Connection;
+end;
+
+destructor TProdutoRepository.Destroy;
+begin
+  inherited;
+end;
+
+procedure TProdutoRepository.Add(Produto: TProduto);
+begin
+  //
+end;
+
+procedure TProdutoRepository.Remove(Produto: TProduto);
+begin
+end;
+
+function TProdutoRepository.Get(Id: TProdutoId): TProduto;
+var
+  Query: TADOQuery;
+begin
+  Result := TProduto.Create;
+
+//  Query := CreateQuery;
+  try
+    Query.SQL.Text := 'select id, codigo_produto, descricao_produto from produtos where id=:id';
+    Query.Parameters.ParamByName('id').Value := Id;
+
+    try
+      Query.Open;
+    except
+      raise;
+    end;
+
+    Result.Id := Query.FieldByName('id').AsInteger;
+    Result.CodigoProduto := Query.FieldByName('codigo_produto').AsString;
+    Result.DescricaoProduto := Query.FieldByName('descricao_produto').AsString;
+  finally
+  //  DestroyQuery(Query);
+  end;
+end;
+
+procedure TProdutoRepository.Update(Produto: TProduto);
+begin
+//  FMapper.Update(Person);
+end;
+
+end.

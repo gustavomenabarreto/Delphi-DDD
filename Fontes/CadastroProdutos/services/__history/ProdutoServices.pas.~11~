@@ -1,0 +1,26 @@
+unit ProdutoServices;
+
+interface
+
+uses Produto, ProdutoValueObjects, ProdutoRepository;
+
+type
+  TProdutoServices = class
+  public
+    class function CarregarProduto( const ProdutoId: TProdutoId): TProduto;
+  end;
+
+implementation
+
+
+class function TProdutoServices.CarregarProduto(
+  const ProdutoId: TProdutoId): TProduto;
+var
+  Repository: TProdutoRepository;
+begin
+
+  Result :=
+
+end;
+
+end.

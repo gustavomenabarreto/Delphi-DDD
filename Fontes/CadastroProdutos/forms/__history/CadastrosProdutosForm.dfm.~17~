@@ -1,0 +1,78 @@
+object frmCadastroProdutos: TfrmCadastroProdutos
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Produtos'
+  ClientHeight = 154
+  ClientWidth = 422
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 422
+    Height = 103
+    Align = alClient
+    TabOrder = 0
+    DesignSize = (
+      422
+      103)
+    object lbCodigo: TLabel
+      Left = 19
+      Top = 25
+      Width = 37
+      Height = 13
+      Alignment = taRightJustify
+      Caption = 'Codigo:'
+    end
+    object lbDescricao: TLabel
+      Left = 10
+      Top = 44
+      Width = 46
+      Height = 13
+      Alignment = taRightJustify
+      Caption = 'Descricao'
+    end
+    object edCodigo: TEdit
+      Left = 66
+      Top = 17
+      Width = 212
+      Height = 21
+      Anchors = [akTop, akRight]
+      TabOrder = 0
+    end
+    object edDescricao: TEdit
+      Left = 66
+      Top = 44
+      Width = 212
+      Height = 21
+      Anchors = [akTop, akRight]
+      TabOrder = 1
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 103
+    Width = 422
+    Height = 51
+    Align = alBottom
+    TabOrder = 1
+    object btnCarregarProduto: TButton
+      Left = 323
+      Top = 6
+      Width = 99
+      Height = 35
+      Caption = 'Carregar Produto'
+      TabOrder = 0
+      OnClick = btnCarregarProdutoClick
+    end
+  end
+end

@@ -1,0 +1,53 @@
+unit CadastrosProdutosForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Produto;
+
+type
+  TfrmCadastroProdutos = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    btnCarregarProduto: TButton;
+    lbCodigo: TLabel;
+    edCodigo: TEdit;
+    lbDescricao: TLabel;
+    edDescricao: TEdit;
+    procedure btnCarregarProdutoClick(Sender: TObject);
+  private
+    function GetProdutoForm: TProduto;
+    procedure SetProdutoForm(const Value: TProduto);
+    { Private declarations }
+  public
+    { Public declarations }
+    property Produto: TProduto read GetProdutoForm write SetProdutoForm;
+  end;
+
+var
+  frmCadastroProdutos: TfrmCadastroProdutos;
+
+implementation
+
+{$R *.dfm}
+
+uses ProdutoServices;
+
+procedure TfrmCadastroProdutos.btnCarregarProdutoClick(Sender: TObject);
+begin
+  SetProdutoForm(GetProdutoForm);
+end;
+
+function TfrmCadastroProdutos.GetProdutoForm: TProduto;
+begin
+  Result := TProdutoServices.CarregarProduto(3);
+end;
+
+procedure TfrmCadastroProdutos.SetProdutoForm(const Value: TProduto);
+begin
+  edCodigo.Text := Value.CodigoProduto;
+  edDescricao.Text := Value.DescricaoProduto;
+end;
+
+end.

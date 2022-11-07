@@ -1,0 +1,37 @@
+unit Produto_ValueObjects;
+
+interface
+
+type
+  TId = integer;
+
+  TCodigoProduto = string;
+  TDescricaoProduto = string;
+
+  TProdutoId = TId;
+
+  TProduto = record
+    CodigoProduto: TCodigoProduto;
+    DescricaoProduto: TDescricaoProduto;
+  end;
+
+  TProdutoValueObject = class
+  private
+    FCodigoProduto: TCodigoProduto;
+    FDescricaoProduto: TDescricaoProduto;
+  public
+    constructor Create (const CodigoProduto, DescricaoProduto: string);
+    property FirstName: TCodigoProduto read FCodigoProduto;
+    property LastName: TDescricaoProduto read FDescricaoProduto;
+  end;
+
+implementation
+
+
+constructor TProdutoValueObject.Create(const CodigoProduto, DescricaoProduto: string);
+begin
+  FCodigoProduto := CodigoProduto;
+  FDescricaoProduto := DescricaoProduto;
+end;
+
+end.
