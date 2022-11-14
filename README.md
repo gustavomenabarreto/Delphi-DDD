@@ -1,3 +1,3 @@
 # Delphi-DDD
 
-Delphi DDD Project Example
+Delphi Project Example Using Domain Driven Design
